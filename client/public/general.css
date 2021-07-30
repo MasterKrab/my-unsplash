@@ -1,0 +1,77 @@
+:root {
+  --text-color: #333;
+  --light-color: #bdbdbd;
+  --button-color: #3db46d;
+  --button-color-2: #eb5757;
+  --error-color: #eb5757;
+
+  --font-primary: "Noto Sans", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 1270px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  font-family: var(--font-primary);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 1.875rem;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 0.5rem;
+  transition: background-color 0.5s;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #575555;
+}
+
+img {
+  max-width: 100%;
+}
+
+input {
+  --outline-color: var(--text-color);
+}
+
+button {
+  background-color: var(--button-color);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  --outline-color: var(--button-color);
+}
+
+button:focus,
+button:focus-visible,
+input:focus {
+  outline: 3px dashed var(--outline-color);
+  outline-offset: 3px;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}

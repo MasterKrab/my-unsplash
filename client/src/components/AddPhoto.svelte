@@ -14,13 +14,16 @@
     }
 
     try {
-      const data = await fetch("https://image-uploader-backend-234.herokuapp.com/images", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ label, url }),
-      });
+      const data = await fetch(
+        "https:/image-uploader-backend-234.herokuapp.com/images",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ label, url }),
+        }
+      );
       const res = await data.json();
 
       if (res.state) {
@@ -44,7 +47,7 @@
   <h2 class="form__title">Add a new photo</h2>
 
   {#if errorMessage}
-  <p class="error" role="alert">{errorMessage}</p>
+    <p class="error" role="alert">{errorMessage}</p>
   {/if}
 
   <label class="form__label" for="label">Label</label>

@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import getData from "../utils/apiCall";
 
-const url = "https:/image-uploader-backend-234.herokuapp.com/images";
+const url = "https://images-39546.herokuapp.com/images";
 
 const createImages = () => {
    const { subscribe, set } = writable(getData(url));

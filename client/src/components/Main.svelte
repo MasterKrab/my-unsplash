@@ -21,8 +21,8 @@
     <Loader />
   {:then images}
     {#if images.length}
-      {#each images as image}
-        <Card on:delete={handleDelete} {...image} />
+      {#each images as { label, url, id } (id)}
+        <Card on:delete={handleDelete} {label} {url} {id} />
       {/each}
     {:else}
       <p class="message" role="alert">There is no images</p>

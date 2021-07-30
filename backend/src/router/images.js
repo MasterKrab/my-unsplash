@@ -19,7 +19,7 @@ router.get("/:label", (req, res) => {
 router.post("/", (req, res) => {
    const body = req.body
 
-   Image.create(body)
+   Image.create({ ...body, date: new Date() })
       .then(() => {
          res.status(201).json({
             state: true,

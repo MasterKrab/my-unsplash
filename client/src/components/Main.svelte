@@ -5,9 +5,12 @@
 
   const handleDelete = async (e) => {
     try {
-      const res = await fetch(`http://localhost:3000/images/${e.detail.id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://images-39546.herokuapp.com/images/${e.detail.id}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
       images.update();
     } catch (error) {

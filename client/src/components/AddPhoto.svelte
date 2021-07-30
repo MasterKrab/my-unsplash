@@ -14,7 +14,7 @@
     }
 
     try {
-      const data = await fetch("http://localhost:3000/images", {
+      const data = await fetch("https://image-uploader-backend-234.herokuapp.com/images", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,9 +43,9 @@
 <form on:submit|preventDefault={handleSubmit} class="form">
   <h2 class="form__title">Add a new photo</h2>
 
-  <!-- {#if errorMessage} -->
+  {#if errorMessage}
   <p class="error" role="alert">{errorMessage}</p>
-  <!-- {/if} -->
+  {/if}
 
   <label class="form__label" for="label">Label</label>
   <input class="form__input" type="text" id="label" name="label" />

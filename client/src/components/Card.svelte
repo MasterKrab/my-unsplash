@@ -2,19 +2,27 @@
   export let label;
   export let url;
   export let id;
+  export let index;
 
-  import { createEventDispatcher, onMount } from "svelte";
+  import { createEventDispatcher } from "svelte";
   import { fly } from "svelte/transition";
 
   const dispatch = createEventDispatcher();
 
   const handleClick = () => dispatch("delete", { id });
 
+  // Masonry
   let card;
   let height;
 
   $: card?.style.setProperty("--row-end", `span ${parseInt(height / 10) + 2}`);
 
+  // Transition
+  const indexTransition = index < 3 ? index : 3;
+  const duration = 300 + indexTransition * 300;
+  const y = 25;
+
+  // Focus
   let isFocus = false;
 
   const handleToggleFocus = () => (isFocus = !isFocus);
@@ -27,7 +35,8 @@
   aria-label={label}
   bind:offsetHeight={height}
   bind:this={card}
-  transition:fly={{ duration: 300, y: 25 }}
+  in:fly={{ duration, y }}
+  out:fly={{ duration: 200, y }}
 >
   <button
     on:focus={handleToggleFocus}

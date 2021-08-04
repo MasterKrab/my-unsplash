@@ -41,7 +41,7 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit} class="form">
-  <h2 class="form__title">Add a new photo</h2>
+  <h2 class="form__title" id="add-photo-label">Add a new photo</h2>
 
   {#if errorMessage}
     <p class="error" role="alert">{errorMessage}</p>

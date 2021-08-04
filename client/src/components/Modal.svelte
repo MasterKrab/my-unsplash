@@ -33,6 +33,8 @@
 
     firstFocus = focusableElements[0];
     lastFocus = focusableElements[focusableElements.length - 1];
+
+    firstFocus.focus();
   });
 </script>
 
@@ -42,6 +44,8 @@
   class="modal"
   class:modal--open={openModal}
   role="dialog"
+  aria-labelledby="add-photo-label"
+  aria-modal="true"
   transition:fade={{ duration: 200 }}
   bind:this={parentNode}
 >

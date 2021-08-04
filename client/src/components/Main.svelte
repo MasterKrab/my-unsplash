@@ -4,18 +4,11 @@
   import images from "../stores/images";
 
   const handleDelete = async (e) => {
-    try {
-      const res = await fetch(
-        `https://images-39546.herokuapp.com/images/${e.detail.id}`,
-        {
-          method: "DELETE",
-        }
-      );
-      const data = await res.json();
-      images.update();
-    } catch (error) {
-      console.error(error);
-    }
+    fetch(`https://images-39546.herokuapp.com/images/${e.detail.id}`, {
+      method: "DELETE",
+    })
+      .then(() => images.update())
+      .catch((error) => console.error(error));
   };
 </script>
 
@@ -24,8 +17,8 @@
     <Loader />
   {:then images}
     {#if images.length}
-      {#each images as { label, url, id } (id)}
-        <Card on:delete={handleDelete} {label} {url} {id} />
+      {#each images as { label, url, id }, index (id)}
+        <Card on:delete={handleDelete} {label} {url} {id} {index} />
       {/each}
     {:else}
       <p class="message" role="alert">There is no images</p>
@@ -38,7 +31,7 @@
     position: relative;
     display: grid;
     grid-auto-rows: 10px;
-    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
     justify-content: center;
     column-gap: 20px;
     padding-top: 75px;

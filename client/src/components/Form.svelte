@@ -25,11 +25,11 @@
     class="form__button"
     type="button">Add a photo</button
   >
-
-  {#if $openModal}
-    <Modal />
-  {/if}
 </form>
+
+{#if $openModal}
+  <Modal />
+{/if}
 
 <style lang="scss">
   .form {

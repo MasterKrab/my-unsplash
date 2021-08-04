@@ -1,7 +1,8 @@
-<div class="loader" role="img" aria-label="Loading" aria-live="assertive" />
+<div class="loader" role="alert" aria-label="Loading" />
 
 <style lang="scss">
   @keyframes spin {
+
     from {
       transform: rotate(0);
     }

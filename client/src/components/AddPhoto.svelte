@@ -116,9 +116,12 @@
   }
 
   .error {
-    position: absolute;
-    top: 32.5px;
-    right: 35px;
     color: var(--error-color);
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      top: 32.5px;
+      right: 35px;
+    }
   }
 </style>

@@ -9,7 +9,7 @@ const createImages = () => {
    const update = () => {
       window.scrollTo(0, 0);
       set(getData(url));
-   }
+   };
 
    const filterByLabel = (label) => set(getData(`${url}/${label}`));
 

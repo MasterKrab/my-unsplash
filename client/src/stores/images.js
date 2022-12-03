@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import getData from "../utils/apiCall";
 
-const url = "https://images-39546.herokuapp.com/images";
+const url = "https://my-unsplash-z0lc.onrender.com/images";
 
 const createImages = () => {
    const { subscribe, set } = writable(getData(url));
